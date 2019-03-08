@@ -36,11 +36,11 @@ function stableSort(array, cmp) {
 
 function getSorting(order, orderBy) {
   return order === 'desc'
-    ? (a, b) => desc(a, b, orderBy)
-    : (a, b) => -desc(a, b, orderBy)
+    ? (a, b) => desc(a, b, orderBy) // Returns -1, 1 or 0
+    : (a, b) => -desc(a, b, orderBy) // Returns 1, -1 or 0
 }
 
-const rows = [
+const columns = [
   { id: 'date', numeric: false, disablePadding: false, label: 'Date' },
   {
     id: 'conversation_count',
@@ -73,30 +73,30 @@ class EnhancedTableHead extends React.Component {
     return (
       <TableHead>
         <TableRow>
-          {rows.map(
-            row => (
+          {columns.map(
+            column => (
               <TableCell
-                key={row.id}
+                key={column.id}
                 align='left'
-                padding={row.disablePadding ? 'none' : 'default'}
-                sortDirection={orderBy === row.id ? order : false}
+                padding={column.disablePadding ? 'none' : 'default'}
+                sortDirection={orderBy === column.id ? order : false}
               >
                 <Tooltip
                   title='Sort'
-                  placement={row.numeric ? 'bottom-end' : 'bottom-start'}
+                  placement={column.numeric ? 'bottom-end' : 'bottom-start'}
                   enterDelay={300}
                 >
                   <TableSortLabel
-                    active={orderBy === row.id}
+                    active={orderBy === column.id}
                     direction={order}
-                    onClick={this.createSortHandler(row.id)}
+                    onClick={this.createSortHandler(column.id)}
                   >
-                    {row.label}
+                    {column.label}
                   </TableSortLabel>
                 </Tooltip>
               </TableCell>
             ),
-            this
+            this // Value to use as this when executing callback.
           )}
         </TableRow>
       </TableHead>
