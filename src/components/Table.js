@@ -141,7 +141,7 @@ let EnhancedTableToolbar = props => {
     <Toolbar className={classes.root}>
       <div className={classes.title}>
         <Typography variant='h6' id='tableTitle'>
-          Data
+          Conversation data
         </Typography>
       </div>
       <div className={classes.spacer} />
