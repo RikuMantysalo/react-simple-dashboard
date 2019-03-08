@@ -12,6 +12,16 @@ Features:
 - Table with pagination and sorting
 - Stores input values in local storage for better UX
 
+## Requirements
+
+Node.js version 7 or greater
+
+## Instructions
+    git clone https://www.github.com/RikuMantysalo/react-simple-dashboard
+    cd react-simple-dashboard
+    npm install
+    npm start
+
 ## Available Scripts
 
 In the project directory, you can run:
