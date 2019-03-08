@@ -24,6 +24,8 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // Setting state according to localStorage values
+    // If localStorage is empty, keep the inital value
     this.setState(
       {
         startDate: this.saveData.startDate || this.state.startDate,
@@ -40,6 +42,7 @@ class App extends Component {
     const { name, value, type } = event.target
     this.setState({ [name]: value }, () => {
       if (type === 'date') {
+        // Setting localStorage values
         this.saveData.startDate = this.state.startDate
         this.saveData.endDate = this.state.endDate
         this.saveData.token = this.state.token
@@ -57,7 +60,7 @@ class App extends Component {
     const token = 'Token ' + this.state.token
     fetch(url, { method: 'GET', headers: { Authorization: token } })
       .then(res => {
-        if (res.status === 401) {
+        if (res.status === 401) { // Status 401: Unauthorized
           this.setState({ validToken: false, loading: false })
           return Promise.reject(res.status)
         } else return res.json()
@@ -74,20 +77,21 @@ class App extends Component {
       })
   }
 
+  // If user presses enter while in the token field, get data
   handleKeyPress = event => {
     if (event.key === 'Enter' && event.target.name === 'token') {
       this.getData()
     }
   }
 
+  // Using context API to pass handler functions down in the component tree
   getContext = () => ({
-    ...this.state,
     handleChange: this.handleChange,
     handleKeyPress: this.handleKeyPress,
   })
 
   render() {
-    const { classes } = this.props
+    const { classes } = this.props // Magic from withStyles
     return (
       <Provider value={this.getContext()}>
           <div className={classes.root} style={{ padding: 10 }}>
