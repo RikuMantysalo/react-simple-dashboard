@@ -1,14 +1,16 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField'
 import { Consumer } from '../context'
+import { withStyles } from '@material-ui/core';
 
-export default function Input(props) {
+function Input(props) {
   const dateRange = { min: props.min, max: props.max }
+  const {classes} = props
   return (
     <Consumer>
       {({ handleChange, handleKeyPress }) => (
         <TextField
-          style={props.style}
+          className={classes.root}
           type={props.type}
           value={props.value}
           name={props.name}
@@ -27,3 +29,13 @@ export default function Input(props) {
     </Consumer>
   )
 }
+const styles = () => ({
+  root: {
+    margin: 5
+  },
+  textField: {
+    color: 'white'
+  },
+})
+
+export default withStyles(styles)(Input)

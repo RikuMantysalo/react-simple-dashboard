@@ -29,7 +29,6 @@ export default function Settings(props) {
         type='date'
         min='2017-05-01'
         max={props.endDate}
-        style={{ margin: 5 }}
         InputProps={dateAdornment}
       />
       <Input
@@ -40,7 +39,6 @@ export default function Settings(props) {
         type='date'
         min={props.startDate}
         max='2017-06-15'
-        style={{ margin: 5 }}
         InputProps={dateAdornment}
       />
       <Input
@@ -48,7 +46,6 @@ export default function Settings(props) {
         name='token'
         type='password'
         label='API Token'
-        style={{ margin: 5 }}
         error={!props.validToken}
         errorText='Invalid token!'
         InputProps={tokenAdornment}

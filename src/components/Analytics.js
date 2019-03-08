@@ -1,12 +1,19 @@
 import React from 'react'
-import { Grid } from '@material-ui/core'
+import { Grid, withStyles } from '@material-ui/core'
 import AnalyticsBox from './AnalyticsBox'
 
-export default function Analytics(props) {
+const styles = theme => ({
+  root: {
+    marginTop: theme.spacing.unit * 3,
+    overflowX: 'auto',
+  },
+})
+function Analytics(props) {
+  const {classes} = props
   return (
     <Grid
+      className={classes.root}
       spacing={8}
-      style={{ marginTop: '35px' }}
       container
       justify='space-evenly'
     >
@@ -34,3 +41,5 @@ export default function Analytics(props) {
     </Grid>
   )
 }
+
+export default withStyles(styles)(Analytics)

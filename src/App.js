@@ -3,10 +3,17 @@ import './App.css'
 import Settings from './components/Settings'
 import Analytics from './components/Analytics'
 import EnhancedTable from './components/Table'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { Provider } from './context'
-import red from '@material-ui/core/colors/red'
-import green from '@material-ui/core/colors/green'
+import {withStyles} from '@material-ui/core'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import red from '@material-ui/core/colors/red';
+
+const theme = createMuiTheme({
+  palette: {
+    type: 'light',
+    }
+});
+
 
 class App extends Component {
   constructor(props) {
@@ -89,9 +96,11 @@ class App extends Component {
   })
 
   render() {
+    const {classes} = this.props
     return (
       <Provider value={this.getContext()}>
-        <div className='App' style={{ padding: 10 }}>
+      <MuiThemeProvider theme={theme}>
+        <div className={classes.root} style={{ padding: 10 }}>
           <Settings
             startDate={this.state.startDate}
             endDate={this.state.endDate}
@@ -104,9 +113,16 @@ class App extends Component {
             loading={this.state.loading}
           />
         </div>
+        </MuiThemeProvider>
       </Provider>
     )
   }
 }
 
-export default App
+const styles = () => ({
+  root: {
+    backgroundColor: '#33c9dc'
+  },
+})
+
+export default withStyles(styles)(App)
