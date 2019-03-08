@@ -5,6 +5,7 @@
 A simple dashboard made with Material-UI.
 
 Features:
+- Responsive
 - Date pickers for start and end date
 - Input for API key
 - Boxes for displaying KPIs
