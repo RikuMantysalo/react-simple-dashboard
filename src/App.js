@@ -4,16 +4,7 @@ import Settings from './components/Settings'
 import Analytics from './components/Analytics'
 import EnhancedTable from './components/Table'
 import { Provider } from './context'
-import {withStyles} from '@material-ui/core'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import red from '@material-ui/core/colors/red';
-
-const theme = createMuiTheme({
-  palette: {
-    type: 'light',
-    }
-});
-
+import { withStyles } from '@material-ui/core'
 
 class App extends Component {
   constructor(props) {
@@ -96,24 +87,22 @@ class App extends Component {
   })
 
   render() {
-    const {classes} = this.props
+    const { classes } = this.props
     return (
       <Provider value={this.getContext()}>
-      <MuiThemeProvider theme={theme}>
-        <div className={classes.root} style={{ padding: 10 }}>
-          <Settings
-            startDate={this.state.startDate}
-            endDate={this.state.endDate}
-            token={this.state.token}
-            validToken={this.state.validToken}
-          />
-          <Analytics data={this.state} loading={this.state.loading} />
-          <EnhancedTable
-            data={this.state.dataByDate}
-            loading={this.state.loading}
-          />
-        </div>
-        </MuiThemeProvider>
+          <div className={classes.root} style={{ padding: 10 }}>
+            <Settings
+              startDate={this.state.startDate}
+              endDate={this.state.endDate}
+              token={this.state.token}
+              validToken={this.state.validToken}
+            />
+            <Analytics data={this.state} loading={this.state.loading} />
+            <EnhancedTable
+              data={this.state.dataByDate}
+              loading={this.state.loading}
+            />
+          </div>
       </Provider>
     )
   }
@@ -121,7 +110,7 @@ class App extends Component {
 
 const styles = () => ({
   root: {
-    backgroundColor: '#33c9dc'
+    backgroundColor: "#03a9f4"
   },
 })
 
