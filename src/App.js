@@ -42,6 +42,9 @@ class App extends Component {
 
   handleChange = event => {
     const { name, value, type } = event.target
+    // Some checks to make sure the date is valid as min and max attributes don't work for keyboard input.
+    // Also prevents resetting the date on mobile
+    if (value >= '2017-05-01' && value <= '2017-06-15') { 
     this.setState({ [name]: value }, () => {
       if (type === 'date') {
         // Setting localStorage values
@@ -52,6 +55,7 @@ class App extends Component {
         this.getData()
       }
     })
+  }
   }
 
   getData = () => {
@@ -99,6 +103,9 @@ class App extends Component {
     const theme = createMuiTheme({
       palette: {
         secondary: cyan,
+      },
+      typography: {
+        useNextVariants: true,
       },
     })
 
@@ -148,7 +155,7 @@ class App extends Component {
               token={token}
               validToken={validToken}
             />
-            <Tabs />
+            <Tabs loading={loading} />
           </div>
         </MuiThemeProvider>
       </DashBoardContext.Provider>
