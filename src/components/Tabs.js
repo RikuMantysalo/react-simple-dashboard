@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles, AppBar, Tabs, Tab, Typography } from '@material-ui/core/'
 import EnhancedTable from './Table'
-import { Consumer } from '../context'
+import { DashBoardContext } from '../context'
 import DataChart from './Chart'
 
 function TabContainer(props) {
@@ -27,15 +27,16 @@ const styles = theme => ({
 
 function SimpleTabs(props) {
   const [value, setValue] = useState(0)
+
   const handleChange = (event, value) => {
     setValue(value)
   }
 
   const { classes } = props
 
+  const {dataByDate} = useContext(DashBoardContext)
+
   return (
-    <Consumer>
-      {({ dataByDate }) => (
         <div className={classes.root}>
           <AppBar className={classes.appBar} position='static'>
             <Tabs
@@ -59,8 +60,6 @@ function SimpleTabs(props) {
             </TabContainer>
           )}
         </div>
-      )}
-    </Consumer>
   )
 }
 

@@ -1,13 +1,12 @@
-import React from 'react'
-import { Consumer } from '../context'
+import React, {useContext} from 'react'
+import { DashBoardContext } from '../context'
 import { withStyles, TextField } from '@material-ui/core';
 
 function Input(props) {
   const dateRange = { min: props.min, max: props.max }
   const {classes} = props
+  const { handleChange, handleKeyPress } = useContext(DashBoardContext)
   return (
-    <Consumer>
-      {({ handleChange, handleKeyPress }) => (
         <TextField
           className={classes.root}
           type={props.type}
@@ -24,8 +23,6 @@ function Input(props) {
           InputLabelProps={{ shrink: true }}
           onKeyPress={handleKeyPress}
         />
-      )}
-    </Consumer>
   )
 }
 const styles = () => ({
