@@ -32,7 +32,7 @@ class App extends Component {
       {
         startDate: this.saveData.startDate || this.state.startDate,
         endDate: this.saveData.endDate || this.state.endDate,
-        token: this.saveData.token || '',
+        token: this.saveData.token || this.state.token,
       },
       () => {
         if (this.state.token !== '') this.getData()
