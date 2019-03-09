@@ -43,17 +43,19 @@ class App extends Component {
     const { name, value, type } = event.target
     // Some checks to make sure the date is valid as min and max attributes don't work for keyboard input.
     // Also prevents resetting the date on mobile
-    if (value >= '2017-05-01' && value <= '2017-06-15') {
+    if (value >= '2017-05-01' && value <= '2017-06-15' && type === 'date') {
       this.setState({ [name]: value }, () => {
-        if (type === 'date') {
           // Setting localStorage values
           this.saveData.startDate = this.state.startDate
           this.saveData.endDate = this.state.endDate
-          this.saveData.token = this.state.token
           localStorage.saveData = JSON.stringify(this.saveData)
           this.getData()
-        }
       })
+    }
+    else {
+      this.setState({ [name]: value }, () => {
+      this.saveData.token = this.state.token
+      localStorage.saveData = JSON.stringify(this.saveData)})
     }
   }
 
