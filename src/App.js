@@ -6,7 +6,7 @@ import Tabs from './components/Tabs'
 import AnalyticsBox from './components/AnalyticsBox'
 import { DashBoardContext } from './context'
 import { withStyles, createMuiTheme, MuiThemeProvider } from '@material-ui/core'
-import { cyan } from '@material-ui/core/colors'
+import { grey, cyan } from '@material-ui/core/colors'
 
 class App extends Component {
   constructor(props) {
@@ -102,7 +102,18 @@ class App extends Component {
   render() {
     const theme = createMuiTheme({
       palette: {
-        secondary: cyan,
+        primary: {
+          light: '#757ce8',
+          main: '#2196f3',
+          dark: '#bbdefb',
+          contrastText: '#fff',
+        },
+        secondary: {
+          light: '#ff7961',
+          main: '#90caf9',
+          dark: '#ba000d',
+          contrastText: '#000',
+        },
       },
       typography: {
         useNextVariants: true,
