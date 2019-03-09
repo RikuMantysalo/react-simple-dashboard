@@ -23,10 +23,9 @@ export default function AnalyticsBox(props) {
           </Typography>
         </Grid>
         <Grid item xs>
-          {props.loading ? (
-            <CircularIndeterminate />
-          ) : (
-            <Typography
+          {props.loading 
+          ? (<CircularIndeterminate />) 
+          : (<Typography
               color='textPrimary'
               variant='h4'
               align='center'
@@ -34,7 +33,8 @@ export default function AnalyticsBox(props) {
             >
               {props.data}
             </Typography>
-          )}
+            )
+          }
         </Grid>
       </Grid>
     </Paper>

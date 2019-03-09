@@ -6,7 +6,6 @@ import Tabs from './components/Tabs'
 import AnalyticsBox from './components/AnalyticsBox'
 import { DashBoardContext } from './context'
 import { withStyles, createMuiTheme, MuiThemeProvider } from '@material-ui/core'
-import { grey, cyan } from '@material-ui/core/colors'
 
 class App extends Component {
   constructor(props) {
@@ -44,18 +43,18 @@ class App extends Component {
     const { name, value, type } = event.target
     // Some checks to make sure the date is valid as min and max attributes don't work for keyboard input.
     // Also prevents resetting the date on mobile
-    if (value >= '2017-05-01' && value <= '2017-06-15') { 
-    this.setState({ [name]: value }, () => {
-      if (type === 'date') {
-        // Setting localStorage values
-        this.saveData.startDate = this.state.startDate
-        this.saveData.endDate = this.state.endDate
-        this.saveData.token = this.state.token
-        localStorage.saveData = JSON.stringify(this.saveData)
-        this.getData()
-      }
-    })
-  }
+    if (value >= '2017-05-01' && value <= '2017-06-15') {
+      this.setState({ [name]: value }, () => {
+        if (type === 'date') {
+          // Setting localStorage values
+          this.saveData.startDate = this.state.startDate
+          this.saveData.endDate = this.state.endDate
+          this.saveData.token = this.state.token
+          localStorage.saveData = JSON.stringify(this.saveData)
+          this.getData()
+        }
+      })
+    }
   }
 
   getData = () => {
@@ -80,7 +79,7 @@ class App extends Component {
           totalVisitorMessageCount: data.total_visitor_message_count,
           dataByDate: data.by_date,
           loading: false,
-          validToken: true
+          validToken: true,
         })
       })
   }
@@ -132,7 +131,7 @@ class App extends Component {
     } = this.state
 
     const { classes } = this.props // Magic from withStyles
-    
+
     return (
       <DashBoardContext.Provider value={this.getContext()}>
         <MuiThemeProvider theme={theme}>

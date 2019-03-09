@@ -40,13 +40,22 @@ export default function DataChart(props) {
         show: false,
       },
     },
-    yaxis: {title:{text: 'Count'}},
+    yaxis: { title: { text: 'Count' } },
     legend: { position: 'top' },
 
     title: {
       text: 'Conversation data',
-      align: 'center'
+      align: 'center',
     },
   }
-  return <Chart style={{marginTop: 10}} options={options} series={series} type='line' width="100%" height="473px" />
+  return (
+    <Chart
+      style={{ marginTop: 10 }}
+      options={options}
+      series={series}
+      type='line'
+      width='100%'
+      height='450px'
+    />
+  )
 }
