@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import Settings from './components/Settings'
 import Analytics from './components/Analytics'
-import EnhancedTable from './components/Table'
+import Tabs from './components/Tabs'
 import { Provider } from './context'
 import { withStyles } from '@material-ui/core'
 
@@ -60,7 +60,8 @@ class App extends Component {
     const token = 'Token ' + this.state.token
     fetch(url, { method: 'GET', headers: { Authorization: token } })
       .then(res => {
-        if (res.status === 401) { // Status 401: Unauthorized
+        if (res.status === 401) {
+          // Status 401: Unauthorized
           this.setState({ validToken: false, loading: false })
           return Promise.reject(res.status)
         } else return res.json()
@@ -86,6 +87,7 @@ class App extends Component {
 
   // Using context API to pass handler functions down in the component tree
   getContext = () => ({
+    ...this.state,
     handleChange: this.handleChange,
     handleKeyPress: this.handleKeyPress,
   })
@@ -94,19 +96,16 @@ class App extends Component {
     const { classes } = this.props // Magic from withStyles
     return (
       <Provider value={this.getContext()}>
-          <div className={classes.root} style={{ padding: 10 }}>
-            <Settings
-              startDate={this.state.startDate}
-              endDate={this.state.endDate}
-              token={this.state.token}
-              validToken={this.state.validToken}
-            />
-            <Analytics data={this.state} loading={this.state.loading} />
-            <EnhancedTable
-              data={this.state.dataByDate}
-              loading={this.state.loading}
-            />
-          </div>
+        <div className={classes.root} style={{ padding: 10 }}>
+          <Analytics data={this.state} loading={this.state.loading} />
+          <Settings
+            startDate={this.state.startDate}
+            endDate={this.state.endDate}
+            token={this.state.token}
+            validToken={this.state.validToken}
+          />
+          <Tabs />
+        </div>
       </Provider>
     )
   }
@@ -114,7 +113,7 @@ class App extends Component {
 
 const styles = () => ({
   root: {
-    backgroundColor: "#03a9f4"
+    backgroundColor: '#03a9f4',
   },
 })
 
