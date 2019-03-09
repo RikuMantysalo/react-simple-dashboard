@@ -2,7 +2,7 @@
 
 ## Description
 
-A simple dashboard made with Material-UI.
+A simple react-based dashboard made with Material-UI and ApexCharts.js.
 
 Features:
 - Responsive
@@ -10,11 +10,8 @@ Features:
 - Input for API key
 - Boxes for displaying KPIs
 - Table with pagination and sorting
+- Linechart for daily data
 - Stores input values in local storage for better UX
-
-## Requirements
-
-Node.js version 7 or greater
 
 ## Instructions
     git clone https://www.github.com/RikuMantysalo/react-simple-dashboard
