@@ -1,5 +1,6 @@
 import React from 'react'
 import Input from './Input'
+import {Grid} from '@material-ui/core'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import CalendarToday from '@material-ui/icons/CalendarToday'
@@ -21,6 +22,8 @@ export default function Settings(props) {
   }
   return (
     <React.Fragment>
+      <Grid container justify="center" style={{paddingTop: 20}}>
+      <Grid item>
       <Input
         label='Start date'
         placeholder='Enter date..'
@@ -50,6 +53,8 @@ export default function Settings(props) {
         errorText='Invalid token!'
         InputProps={tokenAdornment}
       />
+      </Grid>
+      </Grid>
     </React.Fragment>
   )
 }

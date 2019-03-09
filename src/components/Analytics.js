@@ -4,8 +4,7 @@ import AnalyticsBox from './AnalyticsBox'
 
 const styles = theme => ({
   root: {
-    marginTop: theme.spacing.unit * 3,
-    overflowX: 'auto',
+    marginTop: theme.spacing.unit
   },
 })
 function Analytics(props) {
