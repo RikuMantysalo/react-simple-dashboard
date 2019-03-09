@@ -76,6 +76,7 @@ class App extends Component {
           totalVisitorMessageCount: data.total_visitor_message_count,
           dataByDate: data.by_date,
           loading: false,
+          validToken: true
         })
       })
   }
