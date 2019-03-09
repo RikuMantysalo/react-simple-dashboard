@@ -4,7 +4,8 @@ import Settings from './components/Settings'
 import Analytics from './components/Analytics'
 import Tabs from './components/Tabs'
 import { Provider } from './context'
-import { withStyles } from '@material-ui/core'
+import { withStyles, createMuiTheme, MuiThemeProvider } from '@material-ui/core'
+import {cyan} from '@material-ui/core/colors';
 
 class App extends Component {
   constructor(props) {
@@ -93,9 +94,17 @@ class App extends Component {
   })
 
   render() {
+
+
+const theme = createMuiTheme({
+  palette: {
+    secondary: cyan,
+  },
+});
     const { classes } = this.props // Magic from withStyles
     return (
       <Provider value={this.getContext()}>
+      <MuiThemeProvider theme={theme}>
         <div className={classes.root} style={{ padding: 10 }}>
           <Analytics data={this.state} loading={this.state.loading} />
           <Settings
@@ -106,6 +115,7 @@ class App extends Component {
           />
           <Tabs />
         </div>
+        </MuiThemeProvider>
       </Provider>
     )
   }
