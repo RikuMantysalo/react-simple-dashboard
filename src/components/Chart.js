@@ -48,5 +48,5 @@ export default function DataChart(props) {
       align: 'center'
     },
   }
-  return <Chart options={options} series={series} type='line' height='100%' />
+  return <Chart style={{marginTop: 10}} options={options} series={series} type='line' width="100%" height="473px" />
 }

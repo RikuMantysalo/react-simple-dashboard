@@ -7,7 +7,7 @@ import DataChart from './Chart'
 
 function TabContainer(props) {
   return (
-    <Typography component='div' style={{ padding: 8 * 3, height: 430 }}>
+    <Typography component='div' style={{flex: 1, minHeight: 473 }}>
       {props.children}
     </Typography>
   )
