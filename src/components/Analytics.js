@@ -17,25 +17,13 @@ function Analytics(props) {
       justify='space-evenly'
     >
       <Grid item xs>
-        <AnalyticsBox
-          title='Total conversation count'
-          data={props.data.totalConversationCount}
-          loading={props.loading}
-        />
+      {props.left}
       </Grid>
       <Grid item xs>
-        <AnalyticsBox
-          title='Total user message count'
-          data={props.data.totalUserMessageCount}
-          loading={props.loading}
-        />
+      {props.middle}
       </Grid>
       <Grid item xs>
-        <AnalyticsBox
-          title='Total visitor message count'
-          data={props.data.totalVisitorMessageCount}
-          loading={props.loading}
-        />
+      {props.right}
       </Grid>
     </Grid>
   )

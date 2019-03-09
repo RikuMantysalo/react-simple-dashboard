@@ -3,9 +3,10 @@ import './App.css'
 import Settings from './components/Settings'
 import Analytics from './components/Analytics'
 import Tabs from './components/Tabs'
-import { Provider } from './context'
+import AnalyticsBox from './components/AnalyticsBox'
+import { DashBoardContext } from './context'
 import { withStyles, createMuiTheme, MuiThemeProvider } from '@material-ui/core'
-import {cyan} from '@material-ui/core/colors';
+import { cyan } from '@material-ui/core/colors'
 
 class App extends Component {
   constructor(props) {
@@ -94,29 +95,62 @@ class App extends Component {
   })
 
   render() {
+    const theme = createMuiTheme({
+      palette: {
+        secondary: cyan,
+      },
+    })
 
+    const {
+      loading,
+      totalConversationCount,
+      totalUserMessageCount,
+      totalVisitorMessageCount,
+      startDate,
+      endDate,
+      token,
+      validToken,
+    } = this.state
 
-const theme = createMuiTheme({
-  palette: {
-    secondary: cyan,
-  },
-});
     const { classes } = this.props // Magic from withStyles
+    
     return (
-      <Provider value={this.getContext()}>
-      <MuiThemeProvider theme={theme}>
-        <div className={classes.root} style={{ padding: 10 }}>
-          <Analytics data={this.state} loading={this.state.loading} />
-          <Settings
-            startDate={this.state.startDate}
-            endDate={this.state.endDate}
-            token={this.state.token}
-            validToken={this.state.validToken}
-          />
-          <Tabs />
-        </div>
+      <DashBoardContext.Provider value={this.getContext()}>
+        <MuiThemeProvider theme={theme}>
+          <div className={classes.root} style={{ padding: 10 }}>
+            <Analytics
+              left={
+                <AnalyticsBox
+                  title='Total conversation count'
+                  data={totalConversationCount}
+                  loading={loading}
+                />
+              }
+              middle={
+                <AnalyticsBox
+                  title='Total user message count'
+                  data={totalUserMessageCount}
+                  loading={loading}
+                />
+              }
+              right={
+                <AnalyticsBox
+                  title='Total visitor message count'
+                  data={totalVisitorMessageCount}
+                  loading={loading}
+                />
+              }
+            />
+            <Settings
+              startDate={startDate}
+              endDate={endDate}
+              token={token}
+              validToken={validToken}
+            />
+            <Tabs />
+          </div>
         </MuiThemeProvider>
-      </Provider>
+      </DashBoardContext.Provider>
     )
   }
 }
