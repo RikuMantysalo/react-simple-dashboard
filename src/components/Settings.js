@@ -1,10 +1,7 @@
 import React from 'react'
 import Input from './Input'
-import {Grid} from '@material-ui/core'
-import InputAdornment from '@material-ui/core/InputAdornment'
-import AccountCircle from '@material-ui/icons/AccountCircle'
-import CalendarToday from '@material-ui/icons/CalendarToday'
-
+import {Grid, InputAdornment} from '@material-ui/core'
+import {AccountCircle, CalendarToday} from '@material-ui/icons'
 export default function Settings(props) {
   const dateAdornment = {
     startAdornment: (

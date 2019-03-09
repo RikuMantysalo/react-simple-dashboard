@@ -1,17 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
-import Table from '@material-ui/core/Table'
-import TableBody from '@material-ui/core/TableBody'
-import TableCell from '@material-ui/core/TableCell'
-import TableHead from '@material-ui/core/TableHead'
-import TablePagination from '@material-ui/core/TablePagination'
-import TableRow from '@material-ui/core/TableRow'
-import TableSortLabel from '@material-ui/core/TableSortLabel'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-import Paper from '@material-ui/core/Paper'
-import Tooltip from '@material-ui/core/Tooltip'
+import {
+  withStyles,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TablePagination,
+  TableRow,
+  TableSortLabel,
+  Toolbar,
+  Typography,
+  Paper,
+  Tooltip,
+} from '@material-ui/core'
 import { lighten } from '@material-ui/core/styles/colorManipulator'
 
 function desc(a, b, orderBy) {
@@ -157,8 +159,8 @@ EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar)
 
 const styles = theme => ({
   root: {
-    marginTop: theme.spacing.unit * 3,
-    overflowX: 'auto',
+    marginTop: theme.spacing.unit,
+    overflowX: 'auto'
   },
 })
 

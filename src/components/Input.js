@@ -1,7 +1,6 @@
 import React from 'react'
-import TextField from '@material-ui/core/TextField'
 import { Consumer } from '../context'
-import { withStyles } from '@material-ui/core';
+import { withStyles, TextField } from '@material-ui/core';
 
 function Input(props) {
   const dateRange = { min: props.min, max: props.max }
