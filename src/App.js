@@ -57,7 +57,6 @@ class App extends Component {
       this.saveData.token = this.state.token
       localStorage.saveData = JSON.stringify(this.saveData)})
     }
-  }
 
   getData = () => {
     this.setState({ loading: true })
