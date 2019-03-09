@@ -57,7 +57,7 @@ class App extends Component {
       this.saveData.token = this.state.token
       localStorage.saveData = JSON.stringify(this.saveData)})
     }
-
+  }
   getData = () => {
     this.setState({ loading: true })
     const url = `https://api.giosg.com/api/reporting/v1/rooms/84e0fefa-5675-11e7-a349-00163efdd8db/chat-stats/daily/?start_date=${
