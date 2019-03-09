@@ -14,7 +14,7 @@ Features:
 - Stores input values in local storage for better UX
 
 ## Instructions
-    git clone https://www.github.com/RikuMantysalo/react-simple-dashboard
+    git clone https://github.com/RikuMantysalo/react-simple-dashboard.git
     cd react-simple-dashboard
     npm install
     npm start
