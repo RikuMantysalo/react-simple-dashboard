@@ -81,6 +81,7 @@ class App extends Component {
           return Promise.reject(res.status)
         } 
         else if (res.status === 400) {
+          // Status 400: Invalid request
           this.setState({alert: true, loading: false})
           return Promise.reject(res.status) 
           }
