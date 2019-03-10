@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Paper, Typography, Grid } from '@material-ui/core'
 import CircularIndeterminate from './Loader'
+import {DashBoardContext} from '../context'
 
 export default function AnalyticsBox(props) {
-  console.log(props.loading)
   const styles = {
     Paper: {
       height: '100%',
@@ -14,6 +14,8 @@ export default function AnalyticsBox(props) {
     },
   }
 
+  const { loading } = useContext(DashBoardContext)
+
   return (
     <Paper style={styles.Paper}>
       <Grid container direction='column' alignItems='center'>
@@ -23,7 +25,7 @@ export default function AnalyticsBox(props) {
           </Typography>
         </Grid>
         <Grid item xs>
-          {props.loading 
+          {loading
           ? (<CircularIndeterminate />) 
           : (<Typography
               color='textPrimary'

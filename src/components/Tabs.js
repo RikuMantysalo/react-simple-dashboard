@@ -15,13 +15,13 @@ function TabContainer(props) {
       component='div'
       style={{ minHeight: 473 }}
     >
-      <Grid xs>{props.child}</Grid>
+      <Grid item xs>{props.child}</Grid>
     </Grid>
   )
 }
 
 TabContainer.propTypes = {
-  children: PropTypes.node.isRequired,
+  child: PropTypes.node.isRequired,
 }
 
 const styles = theme => ({
@@ -41,7 +41,7 @@ function SimpleTabs(props) {
 
   const { classes } = props
 
-  const { dataByDate } = useContext(DashBoardContext)
+  const { dataByDate, loading } = useContext(DashBoardContext)
 
   return (
     <div className={classes.root}>
@@ -59,7 +59,7 @@ function SimpleTabs(props) {
       {value === 0 && (
         <TabContainer
           child={
-            props.loading 
+            loading 
             ? (<CircularIndeterminate />) 
             : (<EnhancedTable data={dataByDate} />)
           }
@@ -68,7 +68,7 @@ function SimpleTabs(props) {
       {value === 1 && (
         <TabContainer
           child={
-            props.loading 
+            loading
             ? (<CircularIndeterminate />)
             : (<DataChart data={dataByDate} />)
           }

@@ -73,7 +73,6 @@ class App extends Component {
         } else return res.json()
       })
       .then(data => {
-        console.log(data)
         this.setState({
           totalConversationCount: data.total_conversation_count,
           totalUserMessageCount: data.total_user_message_count,
@@ -121,7 +120,6 @@ class App extends Component {
     })
 
     const {
-      loading,
       totalConversationCount,
       totalUserMessageCount,
       totalVisitorMessageCount,
@@ -142,21 +140,18 @@ class App extends Component {
                 <AnalyticsBox
                   title='Total conversation count'
                   data={totalConversationCount}
-                  loading={loading}
                 />
               }
               middle={
                 <AnalyticsBox
                   title='Total user message count'
                   data={totalUserMessageCount}
-                  loading={loading}
                 />
               }
               right={
                 <AnalyticsBox
                   title='Total visitor message count'
                   data={totalVisitorMessageCount}
-                  loading={loading}
                 />
               }
             />
@@ -166,7 +161,7 @@ class App extends Component {
               token={token}
               validToken={validToken}
             />
-            <Tabs loading={loading} />
+            <Tabs/>
           </div>
         </MuiThemeProvider>
       </DashBoardContext.Provider>
