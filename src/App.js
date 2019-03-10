@@ -4,6 +4,7 @@ import Settings from './components/Settings'
 import Analytics from './components/Analytics'
 import Tabs from './components/Tabs'
 import AnalyticsBox from './components/AnalyticsBox'
+import SimpleSnackbar from './components/Alert'
 import { DashBoardContext } from './context'
 import { withStyles, createMuiTheme, MuiThemeProvider } from '@material-ui/core'
 
@@ -20,6 +21,7 @@ class App extends Component {
       dataByDate: [],
       validToken: true,
       loading: false,
+      alert: false,
     }
     this.saveData = JSON.parse(localStorage.saveData || null) || {}
   }
@@ -43,21 +45,28 @@ class App extends Component {
     const { name, value, type } = event.target
     // Some checks to make sure the date is valid as min and max attributes don't work for keyboard input.
     // Also prevents resetting the date on mobile
-    if (value >= '2017-05-01' && value <= '2017-06-15' && type === 'date') {
+    
       this.setState({ [name]: value }, () => {
+        if (type === 'date' && value) {
           // Setting localStorage values
           this.saveData.startDate = this.state.startDate
           this.saveData.endDate = this.state.endDate
           localStorage.saveData = JSON.stringify(this.saveData)
           this.getData()
-      })
-    }
-    else {
-      this.setState({ [name]: value }, () => {
-      this.saveData.token = this.state.token
-      localStorage.saveData = JSON.stringify(this.saveData)})
-    }
+      }
+      else {
+        this.saveData.token = this.state.token
+        localStorage.saveData = JSON.stringify(this.saveData)}
+    })
   }
+
+  handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    this.setState({ alert: false });
+  };
+
   getData = () => {
     this.setState({ loading: true })
     const url = `https://api.giosg.com/api/reporting/v1/rooms/84e0fefa-5675-11e7-a349-00163efdd8db/chat-stats/daily/?start_date=${
@@ -70,9 +79,15 @@ class App extends Component {
           // Status 401: Unauthorized
           this.setState({ validToken: false, loading: false })
           return Promise.reject(res.status)
-        } else return res.json()
+        } 
+        else if (res.status === 400) {
+          this.setState({alert: true, loading: false})
+          return Promise.reject(res.status) 
+          }
+        else return res.json()
       })
       .then(data => {
+        console.log(data)
         this.setState({
           totalConversationCount: data.total_conversation_count,
           totalUserMessageCount: data.total_user_message_count,
@@ -89,6 +104,7 @@ class App extends Component {
     if (event.key === 'Enter' && event.target.name === 'token') {
       this.getData()
     }
+    else if (event.target.name !== 'token') {event.preventDefault()}
   }
 
   // Using context API to pass handler functions down in the component tree
@@ -134,6 +150,7 @@ class App extends Component {
     return (
       <DashBoardContext.Provider value={this.getContext()}>
         <MuiThemeProvider theme={theme}>
+        <SimpleSnackbar handleClose={this.handleClose} open={this.state.alert}/>
           <div className={classes.root} style={{ padding: 10 }}>
             <Analytics
               left={
