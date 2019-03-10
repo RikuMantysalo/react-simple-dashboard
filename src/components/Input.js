@@ -19,6 +19,7 @@ function Input(props) {
       error={props.error}
       helperText={props.error ? 'Invalid token!' : ''}
       required
+      // eslint-disable-next-line
       InputProps={props.InputProps}
       InputLabelProps={{ shrink: true }}
       onKeyPress={handleKeyPress}
