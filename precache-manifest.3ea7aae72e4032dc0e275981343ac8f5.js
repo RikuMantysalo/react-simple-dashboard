@@ -1,31 +1,31 @@
 self.__precacheManifest = [
   {
-    "revision": "110e65ffa885325acba0",
+    "revision": "fdcd8694de1997c380e3",
     "url": "/react-simple-dashboard/static/css/main.b455f17d.chunk.css"
   },
   {
-    "revision": "110e65ffa885325acba0",
-    "url": "/react-simple-dashboard/static/js/main.110e65ff.chunk.js"
+    "revision": "fdcd8694de1997c380e3",
+    "url": "/react-simple-dashboard/static/js/main.fdcd8694.chunk.js"
   },
   {
     "revision": "3519eb6012dfea0d954a",
     "url": "/react-simple-dashboard/static/js/runtime~main.3519eb60.js"
   },
   {
-    "revision": "7c0811f2eee1243e2437",
+    "revision": "a37688e8a74c5661c7a0",
     "url": "/react-simple-dashboard/static/css/2.f6180636.chunk.css"
   },
   {
-    "revision": "7c0811f2eee1243e2437",
-    "url": "/react-simple-dashboard/static/js/2.7c0811f2.chunk.js"
-  },
-  {
-    "revision": "987b84570ea69ee660455b8d5e91f5f1",
-    "url": "/react-simple-dashboard/static/media/roboto-latin-100.987b8457.woff2"
+    "revision": "a37688e8a74c5661c7a0",
+    "url": "/react-simple-dashboard/static/js/2.a37688e8.chunk.js"
   },
   {
     "revision": "55536c8e9e9a532651e3cf374f290ea3",
     "url": "/react-simple-dashboard/static/media/roboto-latin-300.55536c8e.woff2"
+  },
+  {
+    "revision": "987b84570ea69ee660455b8d5e91f5f1",
+    "url": "/react-simple-dashboard/static/media/roboto-latin-100.987b8457.woff2"
   },
   {
     "revision": "5d4aeb4e5f5ef754e307d7ffaef688bd",
@@ -44,28 +44,24 @@ self.__precacheManifest = [
     "url": "/react-simple-dashboard/static/media/roboto-latin-900.19b7a0ad.woff2"
   },
   {
-    "revision": "e9dbbe8a693dd275c16d32feb101f1c1",
-    "url": "/react-simple-dashboard/static/media/roboto-latin-100.e9dbbe8a.woff"
-  },
-  {
     "revision": "6232f43d15b0e7a0bf0fe82e295bdd06",
     "url": "/react-simple-dashboard/static/media/roboto-latin-100italic.6232f43d.woff2"
-  },
-  {
-    "revision": "d704bb3d579b7d5e40880c75705c8a71",
-    "url": "/react-simple-dashboard/static/media/roboto-latin-100italic.d704bb3d.woff"
-  },
-  {
-    "revision": "d69924b98acd849cdeba9fbff3f88ea6",
-    "url": "/react-simple-dashboard/static/media/roboto-latin-300italic.d69924b9.woff2"
   },
   {
     "revision": "a1471d1d6431c893582a5f6a250db3f9",
     "url": "/react-simple-dashboard/static/media/roboto-latin-300.a1471d1d.woff"
   },
   {
-    "revision": "210a7c781f5a354a0e4985656ab456d9",
-    "url": "/react-simple-dashboard/static/media/roboto-latin-300italic.210a7c78.woff"
+    "revision": "d69924b98acd849cdeba9fbff3f88ea6",
+    "url": "/react-simple-dashboard/static/media/roboto-latin-300italic.d69924b9.woff2"
+  },
+  {
+    "revision": "e9dbbe8a693dd275c16d32feb101f1c1",
+    "url": "/react-simple-dashboard/static/media/roboto-latin-100.e9dbbe8a.woff"
+  },
+  {
+    "revision": "d704bb3d579b7d5e40880c75705c8a71",
+    "url": "/react-simple-dashboard/static/media/roboto-latin-100italic.d704bb3d.woff"
   },
   {
     "revision": "bafb105baeb22d965c70fe52ba6b49d9",
@@ -80,24 +76,28 @@ self.__precacheManifest = [
     "url": "/react-simple-dashboard/static/media/roboto-latin-400italic.9680d5a0.woff"
   },
   {
-    "revision": "510dec37fa69fba39593e01a469ee018",
-    "url": "/react-simple-dashboard/static/media/roboto-latin-500italic.510dec37.woff2"
+    "revision": "210a7c781f5a354a0e4985656ab456d9",
+    "url": "/react-simple-dashboard/static/media/roboto-latin-300italic.210a7c78.woff"
   },
   {
     "revision": "de8b7431b74642e830af4d4f4b513ec9",
     "url": "/react-simple-dashboard/static/media/roboto-latin-500.de8b7431.woff"
   },
   {
+    "revision": "510dec37fa69fba39593e01a469ee018",
+    "url": "/react-simple-dashboard/static/media/roboto-latin-500italic.510dec37.woff2"
+  },
+  {
     "revision": "ffcc050b2d92d4b14a4fcb527ee0bcc8",
     "url": "/react-simple-dashboard/static/media/roboto-latin-500italic.ffcc050b.woff"
   },
   {
-    "revision": "846d1890aee87fde5d8ced8eba360c3a",
-    "url": "/react-simple-dashboard/static/media/roboto-latin-700italic.846d1890.woff"
-  },
-  {
     "revision": "010c1aeee3c6d1cbb1d5761d80353823",
     "url": "/react-simple-dashboard/static/media/roboto-latin-700italic.010c1aee.woff2"
+  },
+  {
+    "revision": "846d1890aee87fde5d8ced8eba360c3a",
+    "url": "/react-simple-dashboard/static/media/roboto-latin-700italic.846d1890.woff"
   },
   {
     "revision": "cf6613d1adf490972c557a8e318e0868",
@@ -116,7 +116,7 @@ self.__precacheManifest = [
     "url": "/react-simple-dashboard/static/media/roboto-latin-900italic.bc833e72.woff"
   },
   {
-    "revision": "a5ff6aee9ed35710e0251f15ee6bec2b",
+    "revision": "c2cdb21d4b5d36f27418133d3bc24a58",
     "url": "/react-simple-dashboard/index.html"
   }
 ];
