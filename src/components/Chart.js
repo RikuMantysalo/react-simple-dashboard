@@ -4,6 +4,9 @@ import Chart from 'react-apexcharts'
 
 export default function DataChart(props) {
   let { data } = props
+
+  // API data is not sorted correctly by date
+  // Sort it here so the chart displays in a logical order.
   data = data.sort((a, b) => {
     return a.date < b.date ? -1 : a.date > b.date ? 1 : 0
   })
@@ -22,6 +25,7 @@ export default function DataChart(props) {
       data: data.map(item => item.visitors_with_conversation_count),
     },
   ]
+
   const options = {
     chart: {
       id: 'apexchart-example',
@@ -49,6 +53,7 @@ export default function DataChart(props) {
       align: 'center',
     },
   }
+  
   return (
     <Chart
       style={{ marginTop: 10 }}
