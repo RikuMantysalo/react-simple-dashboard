@@ -4,7 +4,7 @@ import { DashBoardContext } from '../context'
 import { withStyles, TextField } from '@material-ui/core'
 
 function Input(props) {
-  const dateRange = { min: props.min, max: props.max }
+  const dateRange = { min: props.min || '2017-05-01', max: props.max || '2017-06-15' }
   const { classes } = props
   const { handleChange, handleKeyPress } = useContext(DashBoardContext)
   return (
