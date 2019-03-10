@@ -1,7 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Input from './Input'
 import {Grid, InputAdornment} from '@material-ui/core'
 import {AccountCircle, CalendarToday} from '@material-ui/icons'
+
 export default function Settings(props) {
   const dateAdornment = {
     startAdornment: (
@@ -18,7 +20,6 @@ export default function Settings(props) {
     ),
   }
   return (
-    <React.Fragment>
       <Grid container justify="center" style={{paddingTop: 20}}>
       <Grid item>
       <Input
@@ -52,6 +53,12 @@ export default function Settings(props) {
       />
       </Grid>
       </Grid>
-    </React.Fragment>
   )
+}
+
+Settings.propTypes = {
+  startDate: PropTypes.string,
+  endDate: PropTypes.string,
+  token: PropTypes.string,
+  validToken: PropTypes.bool
 }

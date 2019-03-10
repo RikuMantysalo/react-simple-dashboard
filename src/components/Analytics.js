@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Grid, withStyles } from '@material-ui/core'
 
 const styles = theme => ({
@@ -23,4 +24,10 @@ function Analytics(props) {
   )
 }
 
+Analytics.propTypes = {
+  classes: PropTypes.object.isRequired,
+  left: PropTypes.node.isRequired,
+  middle: PropTypes.node.isRequired,
+  right: PropTypes.node.isRequired,
+}
 export default withStyles(styles)(Analytics)

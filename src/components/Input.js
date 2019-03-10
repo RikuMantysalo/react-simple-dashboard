@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import PropTypes from 'prop-types'
 import { DashBoardContext } from '../context'
 import { withStyles, TextField } from '@material-ui/core'
 
@@ -13,7 +14,6 @@ function Input(props) {
       value={props.value}
       name={props.name}
       onChange={handleChange}
-      placeholder={props.placeholder}
       label={props.label}
       inputProps={dateRange}
       error={props.error}
@@ -25,6 +25,16 @@ function Input(props) {
       onKeyPress={handleKeyPress}
     />
   )
+}
+Input.propTypes = {
+  classes: PropTypes.object.isRequired,
+  type: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  inputProps: PropTypes.object,
+  error: PropTypes.bool,
+  InputProps: PropTypes.object,
 }
 const styles = () => ({
   root: {

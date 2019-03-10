@@ -1,4 +1,5 @@
 import React, {useContext} from 'react'
+import PropTypes from 'prop-types'
 import { Paper, Typography, Grid } from '@material-ui/core'
 import CircularIndeterminate from './Loader'
 import {DashBoardContext} from '../context'
@@ -41,4 +42,9 @@ export default function AnalyticsBox(props) {
       </Grid>
     </Paper>
   )
+}
+
+AnalyticsBox.propTypes = {
+  data: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Chart from 'react-apexcharts'
 
 export default function DataChart(props) {
@@ -58,4 +59,8 @@ export default function DataChart(props) {
       height='450px'
     />
   )
+}
+
+DataChart.propTypes = {
+  data: PropTypes.array.isRequired
 }
