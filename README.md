@@ -2,7 +2,7 @@
 
 ## Description
 
-**Live demo at: https://rikumantysalo.github.io/react-simple-dashboard/**
+**Live demo at: https://mantysalo.github.io/react-simple-dashboard/**
 
 A simple react-based dashboard made with Material-UI and ApexCharts.js.
 
